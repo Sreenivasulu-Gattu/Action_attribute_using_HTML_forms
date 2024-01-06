@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select multiple using Checkbox</title>
+</head>
+<body>
+    <h1>select topics</h1><br><br>
+    <form  method="POST" action="{% url 'select_multiple' %}">
+        {% csrf_token %}
+        {% for wo in webpages %}
+            <input type="checkbox" name="tn" id="tn" value="{{wo.topic_name}}">
+            <label for="tn">{{wo.topic_name}}</label><br>
+        {% endfor %} <br><br>
+        <input type="submit" value="Select multiple then submit">
+    </form>
+</body>
+</html>
